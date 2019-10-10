@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "289863445605",
+    "firebase_url": "https://sirdiapp.firebaseio.com",
+    "project_id": "sirdiapp",
+    "storage_bucket": "sirdiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289863445605:android:92524bc19be9192380ea8c",
+        "android_client_info": {
+          "package_name": "com.example.sirdiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289863445605-fs38drg2m9par69i6kcg3g23mu60raas.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sirdiapp",
+            "certificate_hash": "ccef620ca5b3246313f671b694e060a7dfab0b90"
+          }
+        },
+        {
+          "client_id": "289863445605-tdo6kbp3n390u67t76jimdrduqscss0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT0hnYEJ49INdzBY7Z0SYnFxE6IuLxlY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289863445605-tdo6kbp3n390u67t76jimdrduqscss0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
