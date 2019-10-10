@@ -44,13 +44,9 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                 break;
 
             case R.id.cancel:
-                goto_home();
+                startActivity(new Intent(this,LoginActivity.class));
                 break;
         }
-    }
-
-    private void goto_home(){
-        startActivity(new Intent(this,LoginActivity.class));
     }
 
     private void register_user(){
@@ -86,7 +82,9 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(CreateAccountActivity.this, "User Registered Sucessfully", Toast.LENGTH_SHORT).show();
-                    goto_home();
+                    Intent intent = new Intent(CreateAccountActivity.this, ProfileUpdateActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 } else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();
