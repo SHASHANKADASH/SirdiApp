@@ -29,8 +29,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
         mAuth = FirebaseAuth.getInstance();
 
-        new_emailf=(EditText)findViewById(R.id.email_create);
-        new_passf=(EditText)findViewById(R.id.pass_create);
+        new_emailf=findViewById(R.id.email_create);
+        new_passf=findViewById(R.id.pass_create);
 
         findViewById(R.id.sign_up).setOnClickListener(this);
         findViewById(R.id.cancel).setOnClickListener(this);
@@ -82,7 +82,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(CreateAccountActivity.this, "User Registered Sucessfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(CreateAccountActivity.this, ProfileUpdateActivity.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, SignoutActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else{

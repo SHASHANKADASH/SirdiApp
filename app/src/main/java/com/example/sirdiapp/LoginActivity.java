@@ -2,74 +2,72 @@ package com.example.sirdiapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity{
 
-    FirebaseAuth mAuth;
-    EditText new_emailf,new_passf;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthList;
+
+    private TextInputLayout emailf,passf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        new_emailf=(EditText)findViewById(R.id.email_enter);
-        new_passf=(EditText)findViewById(R.id.pass_enter);
-
-        findViewById(R.id.create_account).setOnClickListener(this);
-        findViewById(R.id.sign_in).setOnClickListener(this);
+        emailf=findViewById(R.id.email_enter);
+        passf=findViewById(R.id.pass_enter);
 
         mAuth = FirebaseAuth.getInstance();
+        mAuthList = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null){
+                    startActivity(new Intent(LoginActivity.this, SignoutActivity.class));
+                }
+            }
+        };
     }
 
     @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.create_account:
-                startActivity(new Intent(this,CreateAccountActivity.class));
-                break;
-            case R.id.sign_in:
-                login();
-                break;
-        }
+    protected void onStart() {
+        super.onStart();
+
+        mAuth.addAuthStateListener(mAuthList);
     }
 
-    private void login(){
-        String email = new_emailf.getText().toString().trim();
-        String pass = new_passf.getText().toString().trim();
+    public void createaccount_clicked(View view) {
+        startActivity(new Intent(this,CreateAccountActivity.class));
+    }
+
+    public void login_clicked(View View){
+        String email = emailf.getEditText().getText().toString().trim();
+        String pass = passf.getEditText().getText().toString().trim();
 
         if(email.isEmpty()){
-            new_emailf.setError("Email is required");
-            new_emailf.requestFocus();
+            emailf.setError("Field Can't be Empty");
             return;
         }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            new_emailf.setError("Enter Valid Email");
-            new_emailf.requestFocus();
-            return;
-        }
-
-        if(pass.length()<6){
-            new_passf.setError("Minimum length of password should be 6");
-            new_passf.requestFocus();
-            return;
-        }
-
         if(pass.isEmpty()){
-            new_passf.setError("Password is required");
-            new_passf.requestFocus();
+            passf.setError("Field Can't be Empty");
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            emailf.setError("Enter Valid Email");
+            return;
+        }
+        if(pass.length()<6){
+            passf.setError("Minimum length of password should be 6");
             return;
         }
 
@@ -77,7 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(LoginActivity.this, ProfileUpdateActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, SignoutActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else{

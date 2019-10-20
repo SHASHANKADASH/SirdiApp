@@ -5,32 +5,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
+    android:padding="20dp"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/email_enter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="Email"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/name1"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/logo"
+        android:layout_marginBottom="60dp"/>
 
-    <EditText
-        android:id="@+id/pass_enter"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Password"/>
+        android:layout_margin="10dp"
+        android:id="@+id/email_enter"
+        app:errorEnabled="true"
+        android:textColorHint="@color/grey"
+        app:boxStrokeColor="@color/green3"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="@string/email"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:padding="20dp"
+            android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/pass_enter"
+        app:errorEnabled="true"
+        android:textColorHint="@color/grey"
+        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="@color/green3"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="@string/pass"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:padding="20dp"
+            android:inputType="numberPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In"/>
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/signin"
+        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/white"
+        android:onClick="login_clicked" />
 
-    <Button
-        android:id="@+id/create_account"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"/>
+        android:layout_gravity="center"
+        android:id="@+id/create_account"
+        android:textSize="15sp"
+        android:text="@string/create_acc"
+        android:textColor="@color/green3"
+        android:onClick="createaccount_clicked"/>
 
 </LinearLayout>
