@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:padding="20dp"
-    android:orientation="vertical">
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <ImageView
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:src="@drawable/name1"
-        android:layout_marginTop="100dp"
-        android:contentDescription="@string/logo"
-        android:layout_marginBottom="60dp"/>
+        android:contentDescription="Logo"
+        android:layout_marginBottom="40dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:id="@+id/email_enter"
         app:errorEnabled="true"
         android:textColorHint="@color/grey"
@@ -36,10 +36,10 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_email_black_24dp"
             android:drawablePadding="10dp"
-            android:hint="@string/email"
+            android:hint="Email"
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:padding="20dp"
+            android:padding="15dp"
             android:inputType="textEmailAddress"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -47,7 +47,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:id="@+id/pass_enter"
         app:errorEnabled="true"
         android:textColorHint="@color/grey"
@@ -64,10 +64,10 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_lock_black_24dp"
             android:drawablePadding="10dp"
-            android:hint="@string/pass"
+            android:hint="Password"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:padding="20dp"
+            android:padding="15dp"
             android:inputType="numberPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -76,10 +76,10 @@
         android:id="@+id/sign_in"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:layout_gravity="center"
         android:textAllCaps="false"
-        android:text="@string/signin"
+        android:text="Sign in"
         android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
         android:padding="10dp"
         android:textSize="20sp"
@@ -87,14 +87,35 @@
         android:textColor="@color/white"
         android:onClick="login_clicked" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/forget_pass"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:text="Forgot password?"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/green3"
+            android:onClick="forget_clicked"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:id="@+id/create_account"
-        android:textSize="15sp"
-        android:text="@string/create_acc"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:text="No account yet? \n Create one"
+        android:layout_alignParentRight="true"
+        android:textAlignment="center"
         android:textColor="@color/green3"
         android:onClick="createaccount_clicked"/>
+    </RelativeLayout>
 
 </LinearLayout>

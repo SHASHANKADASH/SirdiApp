@@ -84,4 +84,8 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
     }
+
+    public void forget_clicked(View view) {
+        Toast.makeText(this, "Not Applicable", Toast.LENGTH_SHORT).show();
+    }
 }
