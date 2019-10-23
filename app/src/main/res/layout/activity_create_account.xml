@@ -4,61 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccountActivity"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    android:gravity="center">
+    tools:context=".CreateAccountActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_view"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:src="@drawable/blankpic_round"
-        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="It's Quick and Easy!"
+        android:textColor="@color/green3"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:id="@+id/user_create"
-        app:errorEnabled="true"
-        android:textColorHint="@color/grey"
-        app:counterEnabled="true"
-        app:boxStrokeColor="@color/green3"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_person_add_black_24dp"
-            android:drawablePadding="10dp"
-            android:hint="Create new Username"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:padding="15dp"
-            android:inputType="text"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:id="@+id/email_create"
-        app:errorEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:textColorHint="@color/grey"
-        app:boxStrokeColor="@color/green3"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp">
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="@color/green3"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -66,28 +38,28 @@
             android:drawableStart="@drawable/ic_email_black_24dp"
             android:drawablePadding="10dp"
             android:hint="Enter your Email"
-            android:textColor="@color/black"
-            android:textSize="15sp"
+            android:inputType="textEmailAddress"
             android:padding="15dp"
-            android:inputType="textEmailAddress"/>
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:id="@+id/pass_create"
-        app:errorEnabled="true"
         android:textColorHint="@color/grey"
-        app:counterEnabled="true"
-        app:passwordToggleEnabled="true"
-        app:boxStrokeColor="@color/green3"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp">
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="@color/green3"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -95,28 +67,28 @@
             android:drawableStart="@drawable/ic_lock_black_24dp"
             android:drawablePadding="10dp"
             android:hint="Create new Password"
-            android:textSize="15sp"
-            android:textColor="@color/black"
+            android:inputType="numberPassword"
             android:padding="15dp"
-            android:inputType="numberPassword"/>
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_retype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:id="@+id/pass_retype"
-        app:counterEnabled="true"
-        app:errorEnabled="true"
         android:textColorHint="@color/grey"
-        app:passwordToggleEnabled="true"
-        app:boxStrokeColor="@color/green3"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp">
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="@color/green3"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -124,10 +96,10 @@
             android:drawableStart="@drawable/ic_lock_black_24dp"
             android:drawablePadding="10dp"
             android:hint="Confirm new Password"
-            android:textSize="15sp"
-            android:textColor="@color/black"
+            android:inputType="numberPassword"
             android:padding="15dp"
-            android:inputType="numberPassword"/>
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,16 +107,16 @@
         android:id="@+id/sign_up"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
         android:layout_gravity="center"
-        android:textAllCaps="false"
-        android:text="Register"
-        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
-        android:padding="10dp"
-        android:textSize="20sp"
+        android:layout_margin="10dp"
         android:background="@drawable/custom_button"
+        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
+        android:onClick="signup_clicked"
+        android:padding="10dp"
+        android:text="Register"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:onClick="signup_clicked" />
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/cancel"
@@ -153,8 +125,8 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="@drawable/round_button"
-        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:onClick="cancel_clicked"
         android:padding="10dp"
-        android:onClick="cancel_clicked"/>
+        android:src="@drawable/ic_arrow_back_black_24dp" />
 
 </LinearLayout>
