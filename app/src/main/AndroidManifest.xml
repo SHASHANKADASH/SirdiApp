@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SignoutActivity" />
-        <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".CreateAccountActivity"
+            android:theme="@style/AppTheme.NoActionBar.WhiteAll"/>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar.WhiteAll"/>
+        <activity android:name=".StartActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
