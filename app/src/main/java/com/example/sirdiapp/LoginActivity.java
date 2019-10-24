@@ -20,6 +20,9 @@ public class LoginActivity extends AppCompatActivity{
 
     private TextInputLayout emailf,passf;
 
+    private long backpressedtime;
+    private Toast backtoast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,10 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()!=null){
-                    startActivity(new Intent(LoginActivity.this, SignoutActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
                 }
             }
         };
@@ -46,8 +52,24 @@ public class LoginActivity extends AppCompatActivity{
         mAuth.addAuthStateListener(mAuthList);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(backpressedtime+2000>System.currentTimeMillis()){
+            backtoast.cancel();
+        super.onBackPressed();
+        return;
+        } else{
+            backtoast=Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backtoast.show();
+        }
+        backpressedtime= System.currentTimeMillis();
+    }
+
     public void createaccount_clicked(View view) {
-        startActivity(new Intent(this,CreateAccountActivity.class));
+        Intent intent = new Intent(this, CreateAccountActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     public void login_clicked(View View){
@@ -75,9 +97,10 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(LoginActivity.this, SignoutActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    finish();
                 } else{
                     Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }

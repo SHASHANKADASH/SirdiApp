@@ -15,7 +15,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginBottom="40dp"
-        android:contentDescription="Logo"
+        android:contentDescription="@string/logo"
         android:src="@drawable/app_name_logo" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -29,7 +29,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green3"
+        app:boxStrokeColor="@color/green4"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/mail_green"
             android:drawablePadding="10dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -56,7 +56,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green3"
+        app:boxStrokeColor="@color/green4"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true">
 
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/lock_green"
             android:drawablePadding="10dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="numberPassword"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -83,7 +83,7 @@
         android:drawableEnd="@drawable/keyboard_arrow_right_green"
         android:onClick="login_clicked"
         android:padding="10dp"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp" />
@@ -101,8 +101,8 @@
             android:layout_gravity="center"
             android:onClick="forget_clicked"
             android:padding="10dp"
-            android:text="Forgot password?"
-            android:textColor="@color/green3"
+            android:text="@string/forgot_password"
+            android:textColor="@color/green4"
             android:textSize="16sp" />
 
         <TextView
@@ -113,9 +113,9 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:onClick="createaccount_clicked"
-            android:text="No account yet? \n Create one"
+            android:text="@string/no_account_yet_n_create_one"
             android:textAlignment="center"
-            android:textColor="@color/green3"
+            android:textColor="@color/green4"
             android:textSize="16sp" />
     </RelativeLayout>
 

@@ -14,8 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="It's Quick and Easy!"
-        android:textColor="@color/green3"
+        android:text="@string/it_s_quick_and_easy"
+        android:textColor="@color/green4"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -30,7 +30,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green3"
+        app:boxStrokeColor="@color/green4"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/mail_green"
             android:drawablePadding="10dp"
-            android:hint="Enter your Email"
+            android:hint="@string/enter_your_email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -57,7 +57,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green3"
+        app:boxStrokeColor="@color/green4"
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true">
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/lock_green"
             android:drawablePadding="10dp"
-            android:hint="Create new Password"
+            android:hint="@string/create_new_password"
             android:inputType="numberPassword"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -86,7 +86,7 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeColor="@color/green3"
+        app:boxStrokeColor="@color/green4"
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true">
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/lock_green"
             android:drawablePadding="10dp"
-            android:hint="Confirm new Password"
+            android:hint="@string/confirm_new_password"
             android:inputType="numberPassword"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -114,7 +114,7 @@
         android:drawableEnd="@drawable/keyboard_arrow_right_green"
         android:onClick="signup_clicked"
         android:padding="10dp"
-        android:text="Register"
+        android:text="@string/register"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp" />
@@ -126,7 +126,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="@drawable/round_button"
-        android:contentDescription="Account Creation"
+        android:contentDescription="@string/account_creation"
         android:onClick="cancel_clicked"
         android:padding="10dp"
         android:src="@drawable/arrow_left_white" />

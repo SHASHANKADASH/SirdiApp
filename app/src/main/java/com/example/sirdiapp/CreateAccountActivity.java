@@ -1,40 +1,28 @@
 package com.example.sirdiapp;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
     private TextInputLayout new_emailf, new_passf,new_passf1;
 
     private FirebaseAuth mAuth;
+
+    private long backpressedtime;
+    private Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +36,24 @@ public class CreateAccountActivity extends AppCompatActivity {
         new_passf1 = findViewById(R.id.pass_retype);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(backpressedtime+2000>System.currentTimeMillis()){
+            backtoast.cancel();
+            super.onBackPressed();
+            return;
+        } else{
+            backtoast=Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backtoast.show();
+        }
+        backpressedtime= System.currentTimeMillis();
+    }
+
     public void cancel_clicked(View view) {
-        startActivity(new Intent(this, LoginActivity.class));
+        Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     public void signup_clicked(View view) {
@@ -70,9 +74,10 @@ public class CreateAccountActivity extends AppCompatActivity {
 
                     Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(CreateAccountActivity.this, SignoutActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    finish();
                 } else {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();

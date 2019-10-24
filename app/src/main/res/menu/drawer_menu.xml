@@ -5,12 +5,47 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/profile"
-            android:icon="@drawable/person_green"
-            android:title="Profile" />
+            android:id="@+id/drawer_home"
+            android:icon="@drawable/home_white"
+            android:title="@string/home" />
         <item
-            android:id="@+id/password"
-            android:icon="@drawable/lock_green"
-            android:title="Password" />
+            android:id="@+id/drawer_Profile"
+            android:icon="@drawable/person_white"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/drawer_notification"
+            android:icon="@drawable/notifications_white"
+            android:title="@string/notification" />
+        <item
+            android:id="@+id/drawer_setting"
+            android:icon="@drawable/settings_white"
+            android:title="@string/settings" />
     </group>
+
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/drawer_contact"
+                android:icon="@drawable/call_white"
+                android:title="@string/contact_us" />
+            <item
+                android:id="@+id/drawer_share"
+                android:icon="@drawable/share_white"
+                android:title="@string/share_the_app" />
+        </menu>
+    </item>
+
+    <item android:title="@string/about">
+        <menu>
+            <item
+                android:id="@+id/drawer_terms"
+                android:title="@string/terms_and_conditions" />
+            <item
+                android:id="@+id/drawer_feedback"
+                android:title="@string/feedback" />
+            <item
+                android:id="@+id/about"
+                android:title="@string/about_sirdi" />
+        </menu>
+    </item>
 </menu>

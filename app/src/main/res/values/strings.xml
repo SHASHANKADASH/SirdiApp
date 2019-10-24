@@ -2,4 +2,34 @@
 
     <string name="app_name">Sirdi</string>
 
+    <string name="home">Home</string>
+    <string name="notification">Notification</string>
+    <string name="profile">Profile</string>
+    <string name="codred">CodRed</string>
+    <string name="codred_gmail_com">codred@gmail.com</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="notification_fragment">Notification Fragment</string>
+    <string name="profile_fragment">Profile Fragment</string>
+    <string name="settings">Settings</string>
+    <string name="communicate">Communicate</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="share_the_app">Share the App</string>
+    <string name="about">About</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="feedback">Feedback</string>
+    <string name="about_sirdi">About Sirdi</string>
+    <string name="it_s_quick_and_easy">It\'s Quick and Easy!</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="create_new_password">Create new Password</string>
+    <string name="confirm_new_password">Confirm new Password</string>
+    <string name="register">Register</string>
+    <string name="account_creation">Account Creation</string>
+    <string name="logo">Logo</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="no_account_yet_n_create_one">No account yet?   Create one</string>
+    <string name="profile_pic">profile_pic</string>
+
 </resources>

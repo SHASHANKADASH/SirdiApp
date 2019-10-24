@@ -3,21 +3,30 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/green2</item>
+        <item name="colorPrimary">@color/green3</item>
         <item name="colorPrimaryDark">@color/green1</item>
-        <item name="colorAccent">@color/green3</item>
+        <item name="colorAccent">@color/green4</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/white</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Start">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/green4</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.WhiteAll">
+    <style name="AppTheme.NoActionBar.Main">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorPrimaryDark">@color/green1</item>
+        <item name="colorPrimary">@color/green3</item>
+        <item name="colorAccent">@color/green6</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
 </resources>
