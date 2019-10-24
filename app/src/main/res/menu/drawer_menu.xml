@@ -44,7 +44,7 @@
                 android:id="@+id/drawer_feedback"
                 android:title="@string/feedback" />
             <item
-                android:id="@+id/about"
+                android:id="@+id/drawer_about"
                 android:title="@string/about_sirdi" />
         </menu>
     </item>
