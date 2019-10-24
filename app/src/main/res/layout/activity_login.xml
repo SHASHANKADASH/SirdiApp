@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="40dp"
         android:contentDescription="Logo"
-        android:src="@drawable/name1" />
+        android:src="@drawable/app_name_logo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_enter"
@@ -35,7 +35,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:drawableStart="@drawable/mail_green"
             android:drawablePadding="10dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
@@ -63,7 +63,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawableStart="@drawable/lock_green"
             android:drawablePadding="10dp"
             android:hint="Password"
             android:inputType="numberPassword"
@@ -79,8 +79,8 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/custom_button"
-        android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
+        android:background="@drawable/rect_button"
+        android:drawableEnd="@drawable/keyboard_arrow_right_green"
         android:onClick="login_clicked"
         android:padding="10dp"
         android:text="Sign in"
@@ -97,7 +97,7 @@
             android:id="@+id/forget_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_gravity="center"
             android:onClick="forget_clicked"
             android:padding="10dp"
@@ -109,7 +109,7 @@
             android:id="@+id/create_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:onClick="createaccount_clicked"
