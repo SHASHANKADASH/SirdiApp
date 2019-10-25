@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:background="@color/green4"
-        android:contentDescription="@string/background_green_start"/>
+        android:contentDescription="background_green_start"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,13 +22,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/app_logo"
-            android:contentDescription="@string/start_app_logo"/>
+            android:contentDescription="start_app_logo"/>
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:src="@drawable/app_name_white"
-            android:contentDescription="@string/start_app_text"/>
+            android:contentDescription="start_app_text"/>
     </LinearLayout>
 
 </RelativeLayout>

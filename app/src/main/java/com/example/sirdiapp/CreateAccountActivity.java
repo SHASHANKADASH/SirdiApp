@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +25,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     private long backpressedtime;
     private Toast backtoast;
 
+    ProgressBar create_probar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         new_emailf = findViewById(R.id.email_create);
         new_passf = findViewById(R.id.pass_create);
         new_passf1 = findViewById(R.id.pass_retype);
+        create_probar=findViewById(R.id.create_progress);
     }
 
     @Override
@@ -62,6 +66,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         final String new_pass1 = new_passf1.getEditText().getText().toString().trim();
 
         error(new_email,new_pass,new_pass1);
+        create_probar.setVisibility(View.VISIBLE);
+        create_probar.setProgress(50);
         register_user(new_email,new_pass);
     }
 
@@ -70,9 +76,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(new_email, new_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                create_probar.setProgress(80);
                 if (task.isSuccessful()) {
-
                     Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                    create_probar.setVisibility(View.GONE);
 
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

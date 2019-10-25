@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,6 +24,8 @@ public class LoginActivity extends AppCompatActivity{
     private long backpressedtime;
     private Toast backtoast;
 
+    ProgressBar login_probar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,7 @@ public class LoginActivity extends AppCompatActivity{
 
         emailf=findViewById(R.id.email_enter);
         passf=findViewById(R.id.pass_enter);
+        login_probar=findViewById(R.id.login_progress);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthList = new FirebaseAuth.AuthStateListener() {
@@ -65,7 +69,7 @@ public class LoginActivity extends AppCompatActivity{
         backpressedtime= System.currentTimeMillis();
     }
 
-    public void createaccount_clicked(View view) {
+    public void create_account_clicked(View view) {
         Intent intent = new Intent(this, CreateAccountActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -93,10 +97,16 @@ public class LoginActivity extends AppCompatActivity{
             return;
         }
 
+        login_probar.setVisibility(android.view.View.VISIBLE);
+        login_probar.setProgress(50);
+
         mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                login_probar.setProgress(80);
                 if(task.isSuccessful()){
+                    login_probar.setVisibility(android.view.View.GONE);
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

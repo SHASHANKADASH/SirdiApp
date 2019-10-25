@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".CreateAccountActivity">
+
+    <ProgressBar
+        android:id="@+id/create_progress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/it_s_quick_and_easy"
+        android:text="It's Quick and Easy!"
         android:textColor="@color/green4"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -38,7 +50,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/mail"
             android:drawablePadding="10dp"
-            android:hint="@string/enter_your_email"
+            android:hint="Enter your Email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -67,7 +79,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
-            android:hint="@string/create_new_password"
+            android:hint="Create new Password"
             android:inputType="numberPassword"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -96,7 +108,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
-            android:hint="@string/confirm_new_password"
+            android:hint="Confirm new Password"
             android:inputType="numberPassword"
             android:padding="15dp"
             android:textColor="@color/black"
@@ -114,7 +126,7 @@
         android:drawableEnd="@drawable/keyboard_arrow_right"
         android:onClick="signup_clicked"
         android:padding="10dp"
-        android:text="@string/register"
+        android:text="Register"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp" />
@@ -126,9 +138,11 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="@drawable/round"
-        android:contentDescription="@string/account_creation"
+        android:contentDescription="account_creation"
         android:onClick="cancel_clicked"
         android:padding="10dp"
         android:src="@drawable/arrow_left" />
 
-</LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
