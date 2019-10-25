@@ -29,7 +29,7 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="no_account_yet_n_create_one">No account yet?   Create one</string>
+    <string name="no_account_yet_n_create_one">No account yet?\nCreate one</string>
     <string name="profile_pic">profile_pic</string>
 
     <string name="navigation_drawer_open">Open Navigation drawer</string>
