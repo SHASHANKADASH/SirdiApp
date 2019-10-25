@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="40dp"
         android:contentDescription="@string/logo"
-        android:src="@drawable/app_name_logo" />
+        android:src="@drawable/app_name_green" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_enter"
@@ -35,7 +35,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/mail_green"
+            android:drawableStart="@drawable/mail"
             android:drawablePadding="10dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
@@ -63,7 +63,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/lock_green"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:hint="@string/password"
             android:inputType="numberPassword"
@@ -79,8 +79,8 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/rect_button"
-        android:drawableEnd="@drawable/keyboard_arrow_right_green"
+        android:background="@drawable/rect"
+        android:drawableEnd="@drawable/keyboard_arrow_right"
         android:onClick="login_clicked"
         android:padding="10dp"
         android:text="@string/sign_in"

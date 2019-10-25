@@ -35,5 +35,8 @@
     <string name="navigation_drawer_open">Open Navigation drawer</string>
     <string name="navigation_drawer_close">Close Navigation drawer</string>
     <string name="settings_fragment">Settings Fragment</string>
+    <string name="background_green_start">Background_green_start</string>
+    <string name="start_app_logo">start_app_logo</string>
+    <string name="start_app_text">start_app_text</string>
 
 </resources>

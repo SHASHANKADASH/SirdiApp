@@ -6,10 +6,29 @@
     tools:context=".StartActivity">
 
     <ImageView
-        android:id="@+id/start_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/front_starting" />
+        android:background="@color/green4"
+        android:contentDescription="@string/background_green_start"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/app_logo"
+            android:contentDescription="@string/start_app_logo"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:src="@drawable/app_name_white"
+            android:contentDescription="@string/start_app_text"/>
+    </LinearLayout>
 
 </RelativeLayout>

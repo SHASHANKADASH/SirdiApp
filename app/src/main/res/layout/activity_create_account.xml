@@ -36,7 +36,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/mail_green"
+            android:drawableStart="@drawable/mail"
             android:drawablePadding="10dp"
             android:hint="@string/enter_your_email"
             android:inputType="textEmailAddress"
@@ -65,7 +65,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/lock_green"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:hint="@string/create_new_password"
             android:inputType="numberPassword"
@@ -94,7 +94,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/lock_green"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:hint="@string/confirm_new_password"
             android:inputType="numberPassword"
@@ -110,8 +110,8 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/rect_button"
-        android:drawableEnd="@drawable/keyboard_arrow_right_green"
+        android:background="@drawable/rect"
+        android:drawableEnd="@drawable/keyboard_arrow_right"
         android:onClick="signup_clicked"
         android:padding="10dp"
         android:text="@string/register"
@@ -125,10 +125,10 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/round_button"
+        android:background="@drawable/round"
         android:contentDescription="@string/account_creation"
         android:onClick="cancel_clicked"
         android:padding="10dp"
-        android:src="@drawable/arrow_left_white" />
+        android:src="@drawable/arrow_left" />
 
 </LinearLayout>

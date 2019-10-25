@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/drawer_home"
-            android:icon="@drawable/home_white"
+            android:icon="@drawable/home"
             android:title="@string/home" />
         <item
             android:id="@+id/drawer_Profile"
-            android:icon="@drawable/person_white"
+            android:icon="@drawable/person"
             android:title="@string/profile" />
         <item
             android:id="@+id/drawer_notification"
-            android:icon="@drawable/notifications_white"
+            android:icon="@drawable/notifications"
             android:title="@string/notification" />
         <item
             android:id="@+id/drawer_setting"
-            android:icon="@drawable/settings_white"
+            android:icon="@drawable/settings"
             android:title="@string/settings" />
     </group>
 
@@ -26,11 +26,11 @@
         <menu>
             <item
                 android:id="@+id/drawer_contact"
-                android:icon="@drawable/call_white"
+                android:icon="@drawable/call"
                 android:title="@string/contact_us" />
             <item
                 android:id="@+id/drawer_share"
-                android:icon="@drawable/share_white"
+                android:icon="@drawable/share"
                 android:title="@string/share_the_app" />
         </menu>
     </item>
