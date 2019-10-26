@@ -61,44 +61,9 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     public void signup_clicked(View view) {
-        final String new_email = new_emailf.getEditText().getText().toString().trim();
-        final String new_pass = new_passf.getEditText().getText().toString().trim();
-        final String new_pass1 = new_passf1.getEditText().getText().toString().trim();
-
-        error(new_email,new_pass,new_pass1);
-        create_probar.setVisibility(View.VISIBLE);
-        create_probar.setProgress(50);
-        register_user(new_email,new_pass);
-    }
-
-    private void register_user(String new_email, String new_pass) {
-
-        mAuth.createUserWithEmailAndPassword(new_email, new_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                create_probar.setProgress(80);
-                if (task.isSuccessful()) {
-                    Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                    create_probar.setVisibility(View.GONE);
-
-                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                        Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(CreateAccountActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            }
-        });
-
-    }
-
-    private void error(String new_email, String new_pass, String new_pass1) {
+        String new_email = new_emailf.getEditText().getText().toString().trim();
+        String new_pass = new_passf.getEditText().getText().toString().trim();
+        String new_pass1 = new_passf1.getEditText().getText().toString().trim();
 
         if (new_email.isEmpty()) {
             new_emailf.setError("*Email Required!");
@@ -141,6 +106,35 @@ public class CreateAccountActivity extends AppCompatActivity {
             new_passf1.requestFocus();
             return;
         }
+        create_probar.setVisibility(View.VISIBLE);
+        create_probar.setProgress(50);
+        register_user(new_email,new_pass);
     }
 
+    private void register_user(String new_email, String new_pass) {
+
+        mAuth.createUserWithEmailAndPassword(new_email, new_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                create_probar.setProgress(80);
+                if (task.isSuccessful()) {
+                    Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                    create_probar.setVisibility(View.GONE);
+
+                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(CreateAccountActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
+
+    }
 }

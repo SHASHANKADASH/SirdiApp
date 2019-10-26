@@ -8,25 +8,28 @@
         <item name="colorAccent">@color/green4</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/white</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.Start">
+    <style name="AppTheme.NoActionBar.Start" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/green4</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.Main">
+    <style name="AppTheme.NoActionBar.Main" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimaryDark">@color/green1</item>
-        <item name="colorPrimary">@color/green3</item>
-        <item name="colorAccent">@color/green6</item>
+        <item name="colorPrimaryDark">@color/green4</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/green4</item>
+        <item name="android:background">@color/white</item>
     </style>
 
 </resources>
