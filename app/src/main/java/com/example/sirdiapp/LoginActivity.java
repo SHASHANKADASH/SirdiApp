@@ -8,6 +8,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -81,19 +84,40 @@ public class LoginActivity extends AppCompatActivity{
         String pass = passf.getEditText().getText().toString().trim();
 
         if(email.isEmpty()){
-            emailf.setError("Field Can't be Empty");
-            return;
-        }
-        if(pass.isEmpty()){
-            passf.setError("Field Can't be Empty");
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(emailf);
+            emailf.setError("*Field Can't be Empty");
+            emailf.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailf.setError("Enter Valid Email");
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(emailf);
+            emailf.setError("*Enter Valid Email");
+            emailf.requestFocus();
             return;
         }
+        if(pass.isEmpty()){
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(passf);
+            passf.setError("*Field Can't be Empty");
+            passf.requestFocus();
+            return;
+        }
+
         if(pass.length()<6){
-            passf.setError("Minimum length of password should be 6");
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(passf);
+            passf.setError("*Minimum length of password should be 6");
+            passf.requestFocus();
             return;
         }
 

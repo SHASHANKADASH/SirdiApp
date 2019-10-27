@@ -9,6 +9,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -66,42 +69,70 @@ public class CreateAccountActivity extends AppCompatActivity {
         String new_pass1 = new_passf1.getEditText().getText().toString().trim();
 
         if (new_email.isEmpty()) {
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_emailf);
             new_emailf.setError("*Email Required!");
             new_emailf.requestFocus();
             return;
         }
 
-        if (new_pass.isEmpty()) {
-            new_passf.setError("*Password Required!");
-            new_passf.requestFocus();
-            return;
-        }
-
-        if (new_pass1.isEmpty()) {
-            new_passf1.setError("*Retype Password!");
-            new_passf1.requestFocus();
-            return;
-        }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(new_email).matches()) {
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_emailf);
             new_emailf.setError("*Enter Valid Email!");
             new_emailf.requestFocus();
             return;
         }
 
+        if (new_pass.isEmpty()) {
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_passf);
+            new_passf.setError("*Password Required!");
+            new_passf.requestFocus();
+            return;
+        }
+
         if (new_pass.length() < 6) {
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_passf);
             new_passf.setError("*Minimum length should be 6!");
             new_passf.requestFocus();
             return;
         }
 
+        if (new_pass1.isEmpty()) {
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_passf1);
+            new_passf1.setError("*Retype Password!");
+            new_passf1.requestFocus();
+            return;
+        }
+
         if (new_pass1.length() < 6) {
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_passf1);
             new_passf1.setError("*Minimum length should be 6!");
             new_passf1.requestFocus();
             return;
         }
 
         if(!new_pass.equals(new_pass1)){
+            YoYo.with(Techniques.Shake)
+                    .duration(500)
+                    .repeat(0)
+                    .playOn(new_passf1);
             new_passf1.setError("*Password doesn't match!");
             new_passf1.requestFocus();
             return;
