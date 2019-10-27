@@ -131,17 +131,16 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <ImageView
-        android:id="@+id/cancel"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/round"
-        android:contentDescription="account_creation"
-        android:onClick="cancel_clicked"
-        android:padding="10dp"
-        android:src="@drawable/arrow_left" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:contentDescription="account_creation"
+            android:onClick="cancel_clicked"
+            android:src="@drawable/arrow_left"
+            app:fabSize="normal" />
 
     </LinearLayout>
 
