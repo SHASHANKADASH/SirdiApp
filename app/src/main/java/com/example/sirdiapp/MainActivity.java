@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private long backpressedtime;
     private Toast backtoast;
 
-    private boolean checkable;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
