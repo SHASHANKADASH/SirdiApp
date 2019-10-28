@@ -140,7 +140,8 @@
             android:contentDescription="account_creation"
             android:onClick="cancel_clicked"
             android:src="@drawable/arrow_left"
-            app:fabSize="normal" />
+            app:fabSize="normal"
+            app:rippleColor="@color/green7"/>
 
     </LinearLayout>
 
