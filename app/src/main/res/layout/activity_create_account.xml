@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="It's Quick and Easy!"
-        android:textColor="@color/green4"
+        android:textColor="@color/green3"
         android:textSize="30sp"
         android:textStyle="bold" />
 
