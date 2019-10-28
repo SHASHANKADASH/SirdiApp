@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "289863445605-4cck15or49g1e9m23c00i6v5phu3ethn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sirdiapp",
+            "certificate_hash": "05d6afc87c7b2aa8a3fc03ddf584568808bb8765"
+          }
+        },
+        {
           "client_id": "289863445605-fs38drg2m9par69i6kcg3g23mu60raas.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

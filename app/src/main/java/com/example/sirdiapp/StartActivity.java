@@ -8,12 +8,25 @@ import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        YoYo.with(Techniques.FadeInUp)
+                .duration(2000)
+                .repeat(0)
+                .playOn(findViewById(R.id.start_text));
+
+        YoYo.with(Techniques.FadeInUp)
+                .duration(2000)
+                .repeat(0)
+                .playOn(findViewById(R.id.start_logo));
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -22,13 +35,6 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },1000);
-
-        if (android.os.Build.VERSION.SDK_INT >= 22) {
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.green4));
-        }
+        },2000);
     }
 }

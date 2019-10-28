@@ -5,6 +5,12 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"/>
+
     <application
         android:name=".FirebaseClientSetup"
         android:allowBackup="true"
@@ -13,10 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignoutActivity" />
-        <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar.Main"/>
+        <activity android:name=".CreateAccountActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".StartActivity"
+            android:theme="@style/AppTheme.NoActionBar.Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

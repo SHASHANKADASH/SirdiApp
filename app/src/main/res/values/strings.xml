@@ -1,11 +1,7 @@
 <resources>
-    <string name="app_name">Sirdi</string>
 
-    <string name="email">Email</string>
-    <string name="pass">Password</string>
-    <string name="signin">Sign in</string>
-    <string name="create_acc">No account yet? Create one</string>
-    <string name="signout">Sign out</string>
-    <string name="logo">Logo</string>
+    <string name="app_name">Sirdi</string>
+    <string name="navigation_drawer_open">Navigation Drawer Open</string>
+    <string name="navigation_drawer_close">Navigation Drawer Close</string>
 
 </resources>
