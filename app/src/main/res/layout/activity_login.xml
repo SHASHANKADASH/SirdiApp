@@ -91,7 +91,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:background="@drawable/rect"
+            android:background="@drawable/curv_rect_back"
             android:drawableEnd="@drawable/keyboard_arrow_right"
             android:onClick="login_clicked"
             android:padding="10dp"
