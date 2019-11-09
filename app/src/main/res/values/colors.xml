@@ -20,4 +20,9 @@
     <color name="blue">#3399ff</color>
     <color name="dark_red">#ff0000</color>
 
+    <color name="brown">#8b4513</color>
+    <color name="magneta">#ff9cff</color>
+    <color name="blue_light">#00ccff</color>
+    <color name="orange">#ff7f50</color>
+
 </resources>

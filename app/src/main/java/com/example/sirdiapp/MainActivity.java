@@ -6,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -46,11 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);*/
 
         bot_nav=findViewById(R.id.bottom_navigation);
-        open_fragments_bottom_nav();
 
         nav_drawer=findViewById(R.id.drawer_layout);
         nav_view=findViewById(R.id.drawer_view);
-        open_fragments_drawer_nav();
+
 
         emergency=findViewById(R.id.emergency_button);
         ambulance=findViewById(R.id.ambulance_button);
@@ -62,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         clockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         anticlockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
 
+        open_fragments_bottom_nav();
+        open_fragments_drawer_nav();
         floating_button_clicked();
 
         /*toggle=new ActionBarDrawerToggle(this,nav_drawer,toolbar,
@@ -104,17 +103,9 @@ public class MainActivity extends AppCompatActivity {
                         bot_nav.setSelectedItemId(R.id.bottom_dummy);
                         break;
                     case R.id.drawer_contact:
-                        Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
-                        break;
                     case R.id.drawer_share:
-                        Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
-                        break;
                     case R.id.drawer_terms:
-                        Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
-                        break;
                     case R.id.drawer_feedback:
-                        Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
-                        break;
                     case R.id.drawer_about:
                         Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
                         break;
