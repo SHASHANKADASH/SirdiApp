@@ -122,7 +122,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/rect"
+        android:background="@drawable/curv_rect_back"
         android:drawableEnd="@drawable/keyboard_arrow_right"
         android:onClick="signup_clicked"
         android:padding="10dp"
@@ -139,7 +139,7 @@
             android:layout_margin="10dp"
             android:contentDescription="account_creation"
             android:onClick="cancel_clicked"
-            android:src="@drawable/arrow_left"
+            android:src="@drawable/arrow_left_icon"
             app:fabSize="normal"
             app:rippleColor="@color/green7"/>
 

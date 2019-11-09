@@ -13,5 +13,16 @@
     <color name="grey">#778899</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="red">#DC143C</color>
+    <color name="violet">#6a0dad</color>
+    <color name="light_black">#191919</color>
+    <color name="yellow">#ffa500</color>
+    <color name="blue">#3399ff</color>
+    <color name="dark_red">#ff0000</color>
+
+    <color name="brown">#8b4513</color>
+    <color name="magneta">#ff9cff</color>
+    <color name="blue_light">#00ccff</color>
+    <color name="orange">#ff7f50</color>
 
 </resources>

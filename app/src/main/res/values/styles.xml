@@ -29,11 +29,11 @@
     </style>
 
     <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:textColorPrimary">@color/green4</item>
-        <item name="android:textColorSecondary">@color/green4</item>
-        <item name="android:colorPrimary">@color/white</item>
-        <item name="android:colorPrimaryDark">@color/white</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:colorPrimary">@color/green4</item>
+        <item name="android:colorPrimaryDark">@color/green4</item>
+        <item name="android:background">@color/green4</item>
     </style>
 
 </resources>

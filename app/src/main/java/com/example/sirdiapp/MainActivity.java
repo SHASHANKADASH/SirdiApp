@@ -6,53 +6,73 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bot_nav;
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
 
     private DrawerLayout nav_drawer;
     private NavigationView nav_view;
-    private ActionBarDrawerToggle toggle;
+    //private ActionBarDrawerToggle toggle;
 
     private long backpressedtime;
     private Toast backtoast;
+
+    FloatingActionButton emergency,ambulance,police,fire;
+    Animation open,close,clockwise,anticlockwise;
+    boolean isopen=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
 
         bot_nav=findViewById(R.id.bottom_navigation);
-        open_fragments_bottom_nav();
 
         nav_drawer=findViewById(R.id.drawer_layout);
         nav_view=findViewById(R.id.drawer_view);
-        open_fragments_drawer_nav();
 
-        toggle=new ActionBarDrawerToggle(this,nav_drawer,toolbar,
+
+        emergency=findViewById(R.id.emergency_button);
+        ambulance=findViewById(R.id.ambulance_button);
+        police=findViewById(R.id.police_button);
+        fire=findViewById(R.id.fire_button);
+
+        open = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
+        close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        clockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
+        anticlockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+
+        open_fragments_bottom_nav();
+        open_fragments_drawer_nav();
+        floating_button_clicked();
+
+        /*toggle=new ActionBarDrawerToggle(this,nav_drawer,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         nav_drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        toggle.syncState();*/
 
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
             nav_view.setCheckedItem(R.id.drawer_home);
+            bot_nav.setSelectedItemId(R.id.bottom_home);
         }
     }
 
@@ -81,6 +101,13 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new SettingFragment()).commit();
                         bot_nav.setSelectedItemId(R.id.bottom_dummy);
+                        break;
+                    case R.id.drawer_contact:
+                    case R.id.drawer_share:
+                    case R.id.drawer_terms:
+                    case R.id.drawer_feedback:
+                    case R.id.drawer_about:
+                        Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 nav_drawer.closeDrawer(GravityCompat.START);
@@ -139,5 +166,62 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
+    }
+
+    public void floating_button_clicked(){
+        emergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isopen){
+                    police.startAnimation(close);
+                    ambulance.startAnimation(close);
+                    fire.startAnimation(close);
+                    emergency.startAnimation(anticlockwise);
+                    police.setClickable(false);
+                    ambulance.setClickable(false);
+                    fire.setClickable(false);
+                    isopen=false;
+                }
+                else{
+                    police.startAnimation(open);
+                    ambulance.startAnimation(open);
+                    fire.startAnimation(open);
+                    emergency.startAnimation(clockwise);
+                    police.setClickable(true);
+                    ambulance.setClickable(true);
+                    fire.setClickable(true);
+                    isopen=true;
+                }
+            }
+        });
+
+        police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ambulance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void open_drawer(View view) {
+        nav_drawer.openDrawer(GravityCompat.START);
+    }
+
+    public void three_dots(View view) {
+        Toast.makeText(this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
     }
 }
