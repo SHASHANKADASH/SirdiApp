@@ -1,6 +1,5 @@
 package com.example.sirdiapp;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,7 +22,7 @@ public class HealthFragment extends Fragment {
 
         sliderView = v.findViewById(R.id.imageSlider);
 
-        final SliderAdapterExample adapter = new SliderAdapterExample(getContext());
+        final SliderAdapter adapter = new SliderAdapter(getContext());
         adapter.setCount(3);
 
         sliderView.setSliderAdapter(adapter);
