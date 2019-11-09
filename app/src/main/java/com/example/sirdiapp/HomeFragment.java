@@ -63,11 +63,6 @@ public class HomeFragment extends Fragment {
         handicraft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction frag_trans = getFragmentManager().beginTransaction();
-                frag_trans.replace(R.id.fragment_container,new HandicraftFragment());
-                frag_trans.addToBackStack(null);
-                Toast.makeText(getActivity(), "Handicraft Promotion", Toast.LENGTH_SHORT).show();
-                frag_trans.commit();
             }
         });
 
