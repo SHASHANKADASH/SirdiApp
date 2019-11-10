@@ -1,28 +1,28 @@
 package com.example.sirdiapp;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
-public class HealthFragment extends Fragment {
+public class HealthActivity extends AppCompatActivity {
 
     private SliderView sliderView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_health, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_health);
 
-        sliderView = v.findViewById(R.id.imageSlider);
+        sliderView = findViewById(R.id.imageSlider);
 
-        final SliderAdapter adapter = new SliderAdapter(getContext());
+        final HealthSliderAdapter adapter = new HealthSliderAdapter(this);
         adapter.setCount(3);
 
         sliderView.setSliderAdapter(adapter);
@@ -40,7 +40,14 @@ public class HealthFragment extends Fragment {
                 sliderView.setCurrentPagePosition(position);
             }
         });
+    }
 
-        return v;
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(HealthActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+        finish();
     }
 }

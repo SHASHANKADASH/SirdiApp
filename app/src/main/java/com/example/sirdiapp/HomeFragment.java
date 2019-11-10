@@ -1,5 +1,6 @@
 package com.example.sirdiapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,11 +31,10 @@ public class HomeFragment extends Fragment {
         health.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction frag_trans = getFragmentManager().beginTransaction();
-                frag_trans.replace(R.id.fragment_container,new HealthFragment());
-                frag_trans.addToBackStack(null);
-                Toast.makeText(getActivity(), "Health Care Facilities", Toast.LENGTH_SHORT).show();
-                frag_trans.commit();
+                Intent intent = new Intent(getContext(), HealthActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Toast.makeText(getContext(), "Health Care Facilities", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
 
@@ -52,28 +52,24 @@ public class HomeFragment extends Fragment {
         tour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction frag_trans = getFragmentManager().beginTransaction();
-                frag_trans.replace(R.id.fragment_container,new TourismFragment());
-                frag_trans.addToBackStack(null);
-                Toast.makeText(getActivity(), "Tourism Promotion", Toast.LENGTH_SHORT).show();
-                frag_trans.commit();
+                Toast.makeText(getContext(), "Not Applicable", Toast.LENGTH_SHORT).show();
             }
         });
 
         handicraft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getContext(), HandicraftActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Toast.makeText(getContext(), "Handicraft Items", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
 
         employ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction frag_trans = getFragmentManager().beginTransaction();
-                frag_trans.replace(R.id.fragment_container,new EmploymentFragment());
-                frag_trans.addToBackStack(null);
-                Toast.makeText(getActivity(), "Job Opportunity", Toast.LENGTH_SHORT).show();
-                frag_trans.commit();
+                Toast.makeText(getContext(), "Not Applicable", Toast.LENGTH_SHORT).show();
             }
         });
 

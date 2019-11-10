@@ -12,13 +12,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
-public class SliderAdapter extends
-        SliderViewAdapter<SliderAdapter.SliderAdapterVH> {
+public class HealthSliderAdapter extends
+        SliderViewAdapter<HealthSliderAdapter.SliderAdapterVH> {
 
     private Context context;
     private int mCount;
 
-    public SliderAdapter(Context context) {
+    public HealthSliderAdapter(Context context) {
         this.context = context;
     }
 
@@ -44,23 +44,20 @@ public class SliderAdapter extends
 
         switch (position) {
             case 0:
-                viewHolder.textViewDescription.setText("Overview of blood donation camps will be shown here");
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.slider_back_red)
+                        .load(R.drawable.doctor_interaction)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
             case 1:
-                viewHolder.textViewDescription.setText("Overview of various vaccination camps will be shown here");
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.slider_back_blue)
+                        .load(R.drawable.clinics)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
             case 2:
-                viewHolder.textViewDescription.setText("Various health practices will be shown here");
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.slider_back_orange)
+                        .load(R.drawable.blood_donation)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
