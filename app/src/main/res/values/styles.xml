@@ -44,6 +44,19 @@
         <item name="android:background">@color/red</item>
     </style>
 
+    <style name="AppTheme.Education" parent="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/violet</item>
+        <item name="colorPrimaryDark">@color/violet</item>
+    </style>
+
+    <style name="AppTheme.Education.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:colorPrimary">@color/violet</item>
+        <item name="android:colorPrimaryDark">@color/violet</item>
+        <item name="android:background">@color/violet</item>
+    </style>
+
     <style name="AppTheme.Handicraft" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/yellow</item>
         <item name="colorPrimaryDark">@color/yellow</item>

@@ -41,11 +41,10 @@ public class HomeFragment extends Fragment {
         education.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction frag_trans = getFragmentManager().beginTransaction();
-                frag_trans.replace(R.id.fragment_container,new EducationFragment());
-                frag_trans.addToBackStack(null);
-                Toast.makeText(getActivity(), "Education Facilities", Toast.LENGTH_SHORT).show();
-                frag_trans.commit();
+                Intent intent = new Intent(getContext(), EducationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Toast.makeText(getContext(), "Education Facilities", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
 
