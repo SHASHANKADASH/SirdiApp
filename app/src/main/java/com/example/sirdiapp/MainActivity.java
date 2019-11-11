@@ -168,15 +168,6 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         }
     }
 
-    //clicking sign out
-    public void sign_out(View view) {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-    }
-
     //panic button clicked
     public void floating_button_clicked(){
         emergency.setOnClickListener(new View.OnClickListener() {

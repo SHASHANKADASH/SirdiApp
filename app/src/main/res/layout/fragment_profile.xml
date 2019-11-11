@@ -9,12 +9,4 @@
         android:layout_height="?actionBarSize"
         android:theme="@style/AppTheme.Main.Toolbar" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:textSize="30sp"
-        android:onClick="sign_out"
-        android:layout_centerInParent="true"/>
-
 </RelativeLayout>
