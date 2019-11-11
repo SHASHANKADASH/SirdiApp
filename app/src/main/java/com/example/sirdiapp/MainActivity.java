@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,7 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenuItemClickListener{
 
     private BottomNavigationView bot_nav;
     //private Toolbar toolbar;
@@ -226,6 +227,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void three_dots(View view) {
-        Toast.makeText(this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
+        PopupMenu popup = new PopupMenu(this,view);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.toolbar_menu);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.sign_out:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 }

@@ -164,58 +164,6 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/tour"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:layout_margin="10dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardElevation="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/card_back"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="@drawable/circle_back"
-                            android:backgroundTint="@color/light_black"
-                            android:contentDescription="Tourism"
-                            android:padding="15dp"
-                            android:src="@drawable/travel_icon" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Tourism"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_margin="10dp"
-                            android:background="@color/light_black" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Tourism Promotion"
-                            android:textColor="@android:color/darker_gray"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
                     android:id="@+id/handicraft"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
@@ -260,6 +208,58 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Handicraft Promotions"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tour"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_back"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/circle_back"
+                            android:backgroundTint="@color/light_black"
+                            android:contentDescription="Tourism"
+                            android:padding="15dp"
+                            android:src="@drawable/travel_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Tourism"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/light_black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Tourism Promotion"
                             android:textColor="@android:color/darker_gray"
                             android:textSize="10sp"
                             android:textStyle="bold" />
@@ -326,10 +326,11 @@
                             android:textStyle="bold" />
 
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
-
             </LinearLayout>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
