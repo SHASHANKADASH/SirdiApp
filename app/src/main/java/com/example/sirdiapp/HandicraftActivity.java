@@ -51,6 +51,7 @@ public class HandicraftActivity extends AppCompatActivity implements HandicraftA
 
     }
 
+    //on pressing back button
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(HandicraftActivity.this, MainActivity.class);

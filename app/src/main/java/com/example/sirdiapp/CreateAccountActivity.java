@@ -3,6 +3,7 @@ package com.example.sirdiapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -21,14 +22,11 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
+    //variables
     private TextInputLayout new_emailf, new_passf,new_passf1;
-
     private FirebaseAuth mAuth;
-
     private long backpressedtime;
     private Toast backtoast;
-
-    ProgressBar create_probar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +34,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
 
         mAuth = FirebaseAuth.getInstance();
-
         new_emailf = findViewById(R.id.email_create);
         new_passf = findViewById(R.id.pass_create);
         new_passf1 = findViewById(R.id.pass_retype);
-        create_probar=findViewById(R.id.create_progress);
     }
 
+    //on pressing back in this activity
     @Override
     public void onBackPressed() {
         if(backpressedtime+2000>System.currentTimeMillis()){
@@ -56,6 +53,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         backpressedtime= System.currentTimeMillis();
     }
 
+    //on clicking cancel button
     public void cancel_clicked(View view) {
         Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -63,11 +61,13 @@ public class CreateAccountActivity extends AppCompatActivity {
         finish();
     }
 
+    //on clicking cancel button
     public void signup_clicked(View view) {
         String new_email = new_emailf.getEditText().getText().toString().trim();
         String new_pass = new_passf.getEditText().getText().toString().trim();
         String new_pass1 = new_passf1.getEditText().getText().toString().trim();
 
+        //checking for validation of input data
         if (new_email.isEmpty()) {
             YoYo.with(Techniques.Shake)
                     .duration(500)
@@ -137,26 +137,34 @@ public class CreateAccountActivity extends AppCompatActivity {
             new_passf1.requestFocus();
             return;
         }
-        create_probar.setVisibility(View.VISIBLE);
-        create_probar.setProgress(50);
+
+        //after validation
         register_user(new_email,new_pass);
     }
 
     private void register_user(String new_email, String new_pass) {
 
+        ProgressDialog dialog;
+        dialog =new ProgressDialog(CreateAccountActivity.this,R.style.AppCompatAlertDialogStyle);
+        dialog.setTitle("Please Wait");
+        dialog.setMessage("Authenticating...");
+        dialog.show();
+
         mAuth.createUserWithEmailAndPassword(new_email, new_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                create_probar.setProgress(80);
+
+                //checking if the task is successful or not
                 if (task.isSuccessful()) {
+                    //if successful
                     Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                    create_probar.setVisibility(View.GONE);
 
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
                 } else {
+                    //if not successful show error
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();
                     } else {

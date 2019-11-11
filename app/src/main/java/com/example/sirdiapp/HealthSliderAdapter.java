@@ -76,6 +76,7 @@ public class HealthSliderAdapter extends
         return mCount;
     }
 
+    //setting the layout for image slider
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
 
         View itemView;

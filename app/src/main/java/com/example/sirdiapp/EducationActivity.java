@@ -14,6 +14,7 @@ public class EducationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_education);
     }
 
+    //on pressing back button
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(EducationActivity.this, MainActivity.class);

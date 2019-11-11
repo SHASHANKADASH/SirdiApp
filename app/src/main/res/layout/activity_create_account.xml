@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".CreateAccountActivity">
-
-    <ProgressBar
-        android:id="@+id/create_progress"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:layout_alignParentBottom="true"
-        android:visibility="invisible"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -145,6 +132,4 @@
             app:fabSize="normal"
             app:rippleColor="@color/green7"/>
 
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

@@ -13,6 +13,7 @@ import com.daimajia.androidanimations.library.YoYo;
 
 public class StartActivity extends AppCompatActivity {
 
+    //for delay in opening App
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

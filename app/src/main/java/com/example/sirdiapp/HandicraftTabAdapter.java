@@ -17,6 +17,8 @@ public class HandicraftTabAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
+
+        //on pressing each tab go to fragment
         switch(position){
             case 0:
                  HandicraftArtFragment tab1 = new HandicraftArtFragment();
@@ -29,6 +31,7 @@ public class HandicraftTabAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+    //getting no of tabs
     @Override
     public int getCount() {
         return mNoOfTabs;

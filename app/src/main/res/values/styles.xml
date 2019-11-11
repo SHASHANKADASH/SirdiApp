@@ -2,27 +2,38 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/green3</item>
         <item name="colorPrimaryDark">@color/green1</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- NoActionBarTheme. -->
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/white</item>
     </style>
 
+    <!-- Theme for Start Activity. -->
     <style name="AppTheme.Start" parent="AppTheme.NoActionBar">
         <item name="colorPrimaryDark">@color/green4</item>
     </style>
 
+    <!-- Theme ProgressDialog. -->
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/green4</item>
+        <item name="android:textColorPrimary">@color/green4</item>
+        <item name="android:textColorSecondary">@color/green4</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- Theme for Main Activity. -->
     <style name="AppTheme.Main" parent="AppTheme.NoActionBar">
         <item name="colorPrimaryDark">@color/green4</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <!-- Theme for Main Activity Toolbar. -->
     <style name="AppTheme.Main.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
@@ -31,11 +42,13 @@
         <item name="android:background">@color/green4</item>
     </style>
 
+    <!-- Theme for Health Activity. -->
     <style name="AppTheme.Health" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryDark">@color/red</item>
     </style>
 
+    <!-- Theme for Health Activity Toolbar. -->
     <style name="AppTheme.Health.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
@@ -44,11 +57,13 @@
         <item name="android:background">@color/red</item>
     </style>
 
+    <!-- Theme for Education Activity. -->
     <style name="AppTheme.Education" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/violet</item>
         <item name="colorPrimaryDark">@color/violet</item>
     </style>
 
+    <!-- Theme for Education Activity Toolbar. -->
     <style name="AppTheme.Education.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
@@ -57,11 +72,13 @@
         <item name="android:background">@color/violet</item>
     </style>
 
+    <!-- Theme for Handicraft Activity. -->
     <style name="AppTheme.Handicraft" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/yellow</item>
         <item name="colorPrimaryDark">@color/yellow</item>
     </style>
 
+    <!-- Theme for Handicraft Activity Toolbar. -->
     <style name="AppTheme.Handicraft.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
@@ -70,6 +87,7 @@
         <item name="android:background">@color/yellow</item>
     </style>
 
+    <!-- Theme for Handicraft Activity Tabview. -->
     <style name="AppTabLayout.Handicraft" parent="Widget.Design.TabLayout">
         <item name="tabBackground">@color/yellow</item>
         <item name="tabIndicatorHeight">4dp</item>

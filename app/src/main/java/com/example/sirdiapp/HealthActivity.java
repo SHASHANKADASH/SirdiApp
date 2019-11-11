@@ -34,6 +34,7 @@ public class HealthActivity extends AppCompatActivity {
         //sliderView.setIndicatorUnselectedColor(Color.GRAY);
         sliderView.startAutoCycle();
 
+        //onclicking on image in slider
         sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
             @Override
             public void onIndicatorClicked(int position) {
@@ -42,6 +43,7 @@ public class HealthActivity extends AppCompatActivity {
         });
     }
 
+    //on back pressing
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(HealthActivity.this, MainActivity.class);

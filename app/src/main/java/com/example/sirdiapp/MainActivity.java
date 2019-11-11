@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         }
     }
 
+    //on clicking on nav drawer button
     private void open_fragments_drawer_nav() {
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         });
     }
 
+    //on clicking buttom nav drawer
     private void open_fragments_bottom_nav() {
         bot_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -147,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         });
     }
 
+    //on pressed back button
     @Override
     public void onBackPressed() {
 
@@ -165,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         }
     }
 
+    //clicking sign out
     public void sign_out(View view) {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -173,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         finish();
     }
 
+    //panic button clicked
     public void floating_button_clicked(){
         emergency.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,6 +231,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         nav_drawer.openDrawer(GravityCompat.START);
     }
 
+    //what happens when top right button clicked
     public void three_dots(View view) {
         PopupMenu popup = new PopupMenu(this,view);
         popup.setOnMenuItemClickListener(this);

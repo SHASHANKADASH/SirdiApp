@@ -2,6 +2,8 @@ package com.example.sirdiapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -27,8 +29,6 @@ public class LoginActivity extends AppCompatActivity{
     private long backpressedtime;
     private Toast backtoast;
 
-    ProgressBar login_probar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity{
 
         emailf=findViewById(R.id.email_enter);
         passf=findViewById(R.id.pass_enter);
-        login_probar=findViewById(R.id.login_progress);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthList = new FirebaseAuth.AuthStateListener() {
@@ -59,6 +58,7 @@ public class LoginActivity extends AppCompatActivity{
         mAuth.addAuthStateListener(mAuthList);
     }
 
+    //on pressing back in this activity
     @Override
     public void onBackPressed() {
         if(backpressedtime+2000>System.currentTimeMillis()){
@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity{
         String email = emailf.getEditText().getText().toString().trim();
         String pass = passf.getEditText().getText().toString().trim();
 
+        //checking for validation
         if(email.isEmpty()){
             YoYo.with(Techniques.Shake)
                     .duration(500)
@@ -121,21 +122,25 @@ public class LoginActivity extends AppCompatActivity{
             return;
         }
 
-        login_probar.setVisibility(android.view.View.VISIBLE);
-        login_probar.setProgress(50);
+        ProgressDialog dialog;
+        dialog =new ProgressDialog(LoginActivity.this,R.style.AppCompatAlertDialogStyle);
+        dialog.setTitle("Please Wait");
+        dialog.setMessage("Authenticating...");
+        dialog.show();
 
         mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                login_probar.setProgress(80);
-                if(task.isSuccessful()){
-                    login_probar.setVisibility(android.view.View.GONE);
 
+                //check for task successful
+                if(task.isSuccessful()){
+                    //if success
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
                 } else{
+                    //if failed error message
                     Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }

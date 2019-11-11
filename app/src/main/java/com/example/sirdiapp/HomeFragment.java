@@ -28,6 +28,7 @@ public class HomeFragment extends Fragment {
         handicraft=v.findViewById(R.id.handicraft);
         employ=v.findViewById(R.id.employment);
 
+        //onclicking on each domain card
         health.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
