@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+
+import com.example.sirdiapp.Handicraft.HandicraftActivity;
+import com.example.sirdiapp.Health.HealthActivity;
 
 public class HomeFragment extends Fragment {
 

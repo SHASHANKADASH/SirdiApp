@@ -1,7 +1,6 @@
-package com.example.sirdiapp;
+package com.example.sirdiapp.Handicraft;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -9,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.sirdiapp.MainActivity;
+import com.example.sirdiapp.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class HandicraftActivity extends AppCompatActivity implements HandicraftArtFragment.OnFragmentInteractionListener, HandicraftCraftFragment.OnFragmentInteractionListener{

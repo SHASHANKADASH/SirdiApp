@@ -1,4 +1,4 @@
-package com.example.sirdiapp;
+package com.example.sirdiapp.Health;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.sirdiapp.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 public class HealthSliderAdapter extends

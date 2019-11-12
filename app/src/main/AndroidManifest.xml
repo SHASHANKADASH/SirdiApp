@@ -25,19 +25,19 @@
             android:name=".EducationActivity"
             android:theme="@style/AppTheme.Education" />
         <activity
-            android:name=".HealthActivity"
+            android:name=".Health.HealthActivity"
             android:theme="@style/AppTheme.Health" />
         <activity
-            android:name=".HandicraftActivity"
+            android:name=".Handicraft.HandicraftActivity"
             android:theme="@style/AppTheme.Handicraft" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.Main" />
         <activity
-            android:name=".CreateAccountActivity"
+            android:name=".Authentication.CreateAccountActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Authentication.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StartActivity"

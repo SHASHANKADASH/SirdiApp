@@ -1,4 +1,4 @@
-package com.example.sirdiapp;
+package com.example.sirdiapp.Handicraft;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.sirdiapp.R;
 
 public class HandicraftCraftFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
