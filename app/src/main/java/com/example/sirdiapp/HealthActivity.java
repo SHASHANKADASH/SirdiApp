@@ -13,7 +13,7 @@ import com.smarteist.autoimageslider.SliderView;
 
 public class HealthActivity extends AppCompatActivity {
 
-    private SliderView sliderView;
+    SliderView sliderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

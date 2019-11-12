@@ -20,13 +20,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity{
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthList;
+    FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener mAuthList;
 
-    private TextInputLayout emailf,passf;
+    TextInputLayout emailf,passf;
 
     private long backpressedtime;
-    private Toast backtoast;
+    Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity{
             return;
         }
 
-        ProgressDialog dialog;
+        final ProgressDialog dialog;
         dialog =new ProgressDialog(LoginActivity.this,R.style.AppCompatAlertDialogStyle);
         dialog.setTitle("Please Wait");
         dialog.setMessage("Authenticating...");
@@ -134,12 +134,14 @@ public class LoginActivity extends AppCompatActivity{
                 //check for task successful
                 if(task.isSuccessful()){
                     //if success
+                    dialog.dismiss();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
                 } else{
                     //if failed error message
+                    dialog.dismiss();
                     Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }

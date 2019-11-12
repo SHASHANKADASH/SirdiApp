@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class HomeFragment extends Fragment {
 
-    private CardView health,education,tour,handicraft,employ;
+    CardView health,education,tour,handicraft,employ;
 
     @Nullable
     @Override

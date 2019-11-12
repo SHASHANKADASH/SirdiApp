@@ -22,10 +22,10 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 public class CreateAccountActivity extends AppCompatActivity {
 
     //variables
-    private TextInputLayout new_emailf, new_passf,new_passf1;
-    private FirebaseAuth mAuth;
+    TextInputLayout new_emailf, new_passf,new_passf1;
+    FirebaseAuth mAuth;
     private long backpressedtime;
-    private Toast backtoast;
+    Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +143,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private void register_user(String new_email, String new_pass) {
 
-        ProgressDialog dialog;
+        final ProgressDialog dialog;
         dialog =new ProgressDialog(CreateAccountActivity.this,R.style.AppCompatAlertDialogStyle);
         dialog.setTitle("Please Wait");
         dialog.setMessage("Authenticating...");
@@ -156,6 +156,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 //checking if the task is successful or not
                 if (task.isSuccessful()) {
                     //if successful
+                    dialog.dismiss();
                     Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
@@ -165,8 +166,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                 } else {
                     //if not successful show error
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        dialog.dismiss();
                         Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();
                     } else {
+                        dialog.dismiss();
                         Toast.makeText(CreateAccountActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }

@@ -10,12 +10,11 @@
     android:paddingBottom="20dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginBottom="5dp"
-        android:src="@drawable/blankprofile_round"
-        android:contentDescription="profile_pic"/>
+        android:src="@drawable/blankprofile_round" />
 
     <TextView
         android:layout_width="wrap_content"

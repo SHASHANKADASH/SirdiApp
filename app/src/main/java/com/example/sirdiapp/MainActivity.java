@@ -26,15 +26,15 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenuItemClickListener{
 
-    private BottomNavigationView bot_nav;
+    BottomNavigationView bot_nav;
     //private Toolbar toolbar;
 
-    private DrawerLayout nav_drawer;
-    private NavigationView nav_view;
+    DrawerLayout nav_drawer;
+    NavigationView nav_view;
     //private ActionBarDrawerToggle toggle;
 
     private long backpressedtime;
-    private Toast backtoast;
+    Toast backtoast;
 
     FloatingActionButton emergency,ambulance,police,fire;
     Animation open,close,clockwise,anticlockwise;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
     }
 
     //on clicking on nav drawer button
-    private void open_fragments_drawer_nav() {
+    public void open_fragments_drawer_nav() {
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -94,8 +94,10 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
                         bot_nav.setSelectedItemId(R.id.bottom_home);
                         break;
                     case R.id.drawer_Profile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new ProfileFragment()).commit();
+                        Intent intent = new Intent(MainActivity.this, NewProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
                         bot_nav.setSelectedItemId(R.id.bottom_Profile);
                         break;
                     case R.id.drawer_notification:
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
     }
 
     //on clicking buttom nav drawer
-    private void open_fragments_bottom_nav() {
+    public void open_fragments_bottom_nav() {
         bot_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -139,8 +141,10 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
                         nav_view.setCheckedItem(R.id.drawer_notification);
                         break;
                     case R.id.bottom_Profile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new ProfileFragment()).commit();
+                        Intent intent = new Intent(MainActivity.this, NewProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
                         nav_view.setCheckedItem(R.id.drawer_Profile);
                         break;
                 }
