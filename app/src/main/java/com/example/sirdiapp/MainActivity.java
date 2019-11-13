@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sirdiapp.Authentication.LoginActivity;
@@ -18,6 +19,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenuItemClickListener{
 
@@ -34,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
     FloatingActionButton emergency,ambulance,police,fire;
     Animation open,close,clockwise,anticlockwise;
     boolean isopen=false;
+
+    CircleImageView draw_img;
+    TextView draw_user,draw_email;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +67,27 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         clockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         anticlockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+
+        View header=nav_view.getHeaderView(0);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        draw_img=header.findViewById(R.id.drawer_user_pic);
+        draw_user=header.findViewById(R.id.drawer_user_name);
+        draw_email=header.findViewById(R.id.drawer_user_email);
+
+        if (user != null) {
+            if (user.getEmail() != null) {
+                draw_email.setText(user.getEmail());
+            }
+            if (user.getDisplayName() != null) {
+                draw_user.setText(user.getDisplayName());
+            }
+            if (user.getPhotoUrl() != null) {
+                Picasso.get()
+                        .load(user.getPhotoUrl().toString())
+                        .into(draw_img);
+            }
+        }
 
         open_fragments_bottom_nav();
         open_fragments_drawer_nav();
@@ -89,10 +119,8 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
                         bot_nav.setSelectedItemId(R.id.bottom_home);
                         break;
                     case R.id.drawer_Profile:
-                        Intent intent = new Intent(MainActivity.this, NewProfileActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        finish();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new ProfileFragment()).commit();
                         bot_nav.setSelectedItemId(R.id.bottom_Profile);
                         break;
                     case R.id.drawer_notification:
@@ -136,10 +164,8 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
                         nav_view.setCheckedItem(R.id.drawer_notification);
                         break;
                     case R.id.bottom_Profile:
-                        Intent intent = new Intent(MainActivity.this, NewProfileActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        finish();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                new ProfileFragment()).commit();
                         nav_view.setCheckedItem(R.id.drawer_Profile);
                         break;
                 }

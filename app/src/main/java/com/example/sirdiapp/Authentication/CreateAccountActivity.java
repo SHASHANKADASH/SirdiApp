@@ -1,8 +1,5 @@
 package com.example.sirdiapp.Authentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +7,13 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.sirdiapp.MainActivity;
+import com.example.sirdiapp.NewProfileActivity;
 import com.example.sirdiapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -146,7 +147,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private void register_user(String new_email, String new_pass) {
 
         final ProgressDialog dialog;
-        dialog =new ProgressDialog(CreateAccountActivity.this,R.style.AppCompatAlertDialogStyle);
+        dialog = new ProgressDialog(CreateAccountActivity.this, R.style.AppCompatAlertDialogStyle);
         dialog.setTitle("Please Wait");
         dialog.setMessage("Authenticating...");
         dialog.show();
@@ -161,7 +162,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     dialog.dismiss();
                     Toast.makeText(CreateAccountActivity.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, NewProfileActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
