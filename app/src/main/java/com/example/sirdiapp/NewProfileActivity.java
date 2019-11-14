@@ -30,20 +30,22 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewProfileActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST=1;
-    Uri mImageUri;
-    CircleImageView mImageview;
-    TextInputLayout username;
-    ProgressDialog dialog;
+    private Uri mImageUri;
+    private CircleImageView mImageview;
+    private TextInputLayout username;
+    private ProgressDialog dialog;
 
-    StorageReference profiledataref;
-    StorageTask task;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
+    private StorageReference profiledataref;
+    private StorageTask task;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class NewProfileActivity extends AppCompatActivity {
 
         if (user != null) {
             if (user.getDisplayName() != null) {
-                username.getEditText().setText(user.getDisplayName());
+                Objects.requireNonNull(username.getEditText()).setText(user.getDisplayName());
             }
             if (user.getPhotoUrl() != null) {
                 Picasso.get()
@@ -98,7 +100,7 @@ public class NewProfileActivity extends AppCompatActivity {
         finish();
     }
 
-    public String getFileExtension(Uri uri) {
+    private String getFileExtension(Uri uri) {
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
@@ -109,7 +111,7 @@ public class NewProfileActivity extends AppCompatActivity {
             Toast.makeText(this, "Wait Server is Busy", Toast.LENGTH_SHORT).show();
         } else {
 
-            String user_name = username.getEditText().getText().toString().trim();
+            String user_name = Objects.requireNonNull(username.getEditText()).getText().toString().trim();
 
             if (user_name.isEmpty()) {
                 YoYo.with(Techniques.Shake)

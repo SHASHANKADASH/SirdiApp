@@ -34,6 +34,7 @@
             android:contentDescription="Hamburger Icon"
             android:elevation="10dp"
             android:onClick="open_drawer"
+            android:focusable="true"
             android:src="@drawable/nav_draw_ham_icon" />
 
         <ImageView
@@ -46,6 +47,7 @@
             android:contentDescription="More"
             android:elevation="10dp"
             android:onClick="three_dots"
+            android:focusable="true"
             android:src="@drawable/more_icon" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

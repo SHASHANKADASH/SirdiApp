@@ -18,10 +18,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileFragment extends Fragment {
 
-    Button update;
-    TextView user_disname, user_email;
-    CircleImageView view;
-    FirebaseUser user;
+    private Button update;
+    private TextView user_disname;
+    private TextView user_email;
+    private CircleImageView view;
+    private FirebaseUser user;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

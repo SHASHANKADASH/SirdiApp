@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class HandicraftTabAdapter extends FragmentStatePagerAdapter {
 
-    int mNoOfTabs;
+    final int mNoOfTabs;
 
     public HandicraftTabAdapter(FragmentManager fm,int NumberOfTabs){
         super(fm);
@@ -21,11 +21,9 @@ public class HandicraftTabAdapter extends FragmentStatePagerAdapter {
         //on pressing each tab go to fragment
         switch(position){
             case 0:
-                 HandicraftArtFragment tab1 = new HandicraftArtFragment();
-                 return tab1;
+                return new HandicraftArtFragment();
             case 1:
-                HandicraftCraftFragment tab2 = new HandicraftCraftFragment();
-                return tab2;
+                return new HandicraftCraftFragment();
             default:
                 return null;
         }

@@ -18,6 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:contentDescription="TODO"
+            android:focusable="true"
             android:src="@drawable/nav_draw_ham_icon" />
 
         <TextView
@@ -36,7 +38,9 @@
             android:layout_marginEnd="10dp"
             android:clickable="true"
             android:src="@drawable/more_icon"
-            android:layout_marginStart="140dp"/>
+            android:layout_marginStart="140dp"
+            android:contentDescription="TODO"
+            android:focusable="true" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -57,7 +61,8 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/education_header"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:contentDescription="TODO" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -67,6 +72,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/magneta"
                 app:cardCornerRadius="40dp"
+                android:focusable="true"
                 app:cardElevation="5dp">
 
                 <LinearLayout
@@ -91,6 +97,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/circle_back"
                         android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="TODO"
                         android:src="@drawable/abacus_icon" />
 
                 </LinearLayout>
@@ -105,6 +112,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/orange"
                 app:cardCornerRadius="40dp"
+                android:focusable="true"
                 app:cardElevation="5dp">
 
                 <LinearLayout
@@ -129,6 +137,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/circle_back"
                         android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="TODO"
                         android:src="@drawable/magnet_icon" />
 
                 </LinearLayout>
@@ -143,6 +152,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/blue_light"
                 app:cardCornerRadius="40dp"
+                android:focusable="true"
                 app:cardElevation="5dp">
 
                 <LinearLayout
@@ -167,6 +177,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/circle_back"
                         android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="TODO"
                         android:src="@drawable/flask_icon" />
 
                 </LinearLayout>
@@ -181,6 +192,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/green5"
                 app:cardCornerRadius="40dp"
+                android:focusable="true"
                 app:cardElevation="5dp">
 
                 <LinearLayout
@@ -205,6 +217,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/circle_back"
                         android:backgroundTint="@android:color/transparent"
+                        android:contentDescription="TODO"
                         android:src="@drawable/microscope_icon" />
 
                 </LinearLayout>

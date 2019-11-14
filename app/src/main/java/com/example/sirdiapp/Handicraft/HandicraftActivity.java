@@ -1,12 +1,12 @@
 package com.example.sirdiapp.Handicraft;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.sirdiapp.MainActivity;
 import com.example.sirdiapp.R;

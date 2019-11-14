@@ -1,14 +1,14 @@
 package com.example.sirdiapp.Authentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -20,15 +20,18 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity{
 
-    FirebaseAuth mAuth;
-    FirebaseAuth.AuthStateListener mAuthList;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthList;
 
-    TextInputLayout emailf,passf;
+    private TextInputLayout emailf;
+    private TextInputLayout passf;
 
     private long backpressedtime;
-    Toast backtoast;
+    private Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +84,8 @@ public class LoginActivity extends AppCompatActivity{
     }
 
     public void login_clicked(View View){
-        String email = emailf.getEditText().getText().toString().trim();
-        String pass = passf.getEditText().getText().toString().trim();
+        String email = Objects.requireNonNull(emailf.getEditText()).getText().toString().trim();
+        String pass = Objects.requireNonNull(passf.getEditText()).getText().toString().trim();
 
         //checking for validation
         if(email.isEmpty()){
@@ -144,7 +147,7 @@ public class LoginActivity extends AppCompatActivity{
                 } else{
                     //if failed error message
                     dialog.dismiss();
-                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

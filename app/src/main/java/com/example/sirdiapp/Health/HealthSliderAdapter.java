@@ -16,7 +16,7 @@ import com.smarteist.autoimageslider.SliderViewAdapter;
 public class HealthSliderAdapter extends
         SliderViewAdapter<HealthSliderAdapter.SliderAdapterVH> {
 
-    private Context context;
+    private final Context context;
     private int mCount;
 
     public HealthSliderAdapter(Context context) {
@@ -80,9 +80,9 @@ public class HealthSliderAdapter extends
     //setting the layout for image slider
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
 
-        View itemView;
-        ImageView imageViewBackground;
-        TextView textViewDescription;
+        final View itemView;
+        final ImageView imageViewBackground;
+        final TextView textViewDescription;
 
         public SliderAdapterVH(View itemView) {
             super(itemView);

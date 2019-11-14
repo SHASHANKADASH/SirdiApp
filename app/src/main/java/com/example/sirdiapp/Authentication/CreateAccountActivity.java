@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.sirdiapp.MainActivity;
 import com.example.sirdiapp.NewProfileActivity;
 import com.example.sirdiapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,13 +21,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
+import java.util.Objects;
+
 public class CreateAccountActivity extends AppCompatActivity {
 
     //variables
-    TextInputLayout new_emailf, new_passf,new_passf1;
-    FirebaseAuth mAuth;
+    private TextInputLayout new_emailf;
+    private TextInputLayout new_passf;
+    private TextInputLayout new_passf1;
+    private FirebaseAuth mAuth;
     private long backpressedtime;
-    Toast backtoast;
+    private Toast backtoast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +68,9 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     //on clicking cancel button
     public void signup_clicked(View view) {
-        String new_email = new_emailf.getEditText().getText().toString().trim();
-        String new_pass = new_passf.getEditText().getText().toString().trim();
-        String new_pass1 = new_passf1.getEditText().getText().toString().trim();
+        String new_email = Objects.requireNonNull(new_emailf.getEditText()).getText().toString().trim();
+        String new_pass = Objects.requireNonNull(new_passf.getEditText()).getText().toString().trim();
+        String new_pass1 = Objects.requireNonNull(new_passf1.getEditText()).getText().toString().trim();
 
         //checking for validation of input data
         if (new_email.isEmpty()) {
@@ -173,7 +176,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                         Toast.makeText(CreateAccountActivity.this, "Email Already Registered", Toast.LENGTH_SHORT).show();
                     } else {
                         dialog.dismiss();
-                        Toast.makeText(CreateAccountActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateAccountActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
 

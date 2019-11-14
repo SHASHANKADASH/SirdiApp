@@ -1,9 +1,5 @@
 package com.example.sirdiapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,6 +9,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.sirdiapp.Authentication.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,23 +27,30 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenuItemClickListener{
 
-    BottomNavigationView bot_nav;
+    private BottomNavigationView bot_nav;
     //private Toolbar toolbar;
 
-    DrawerLayout nav_drawer;
-    NavigationView nav_view;
+    private DrawerLayout nav_drawer;
+    private NavigationView nav_view;
     //private ActionBarDrawerToggle toggle;
 
     private long backpressedtime;
-    Toast backtoast;
+    private Toast backtoast;
 
-    FloatingActionButton emergency,ambulance,police,fire;
-    Animation open,close,clockwise,anticlockwise;
-    boolean isopen=false;
+    private FloatingActionButton emergency;
+    private FloatingActionButton ambulance;
+    private FloatingActionButton police;
+    private FloatingActionButton fire;
+    private Animation open;
+    private Animation close;
+    private Animation clockwise;
+    private Animation anticlockwise;
+    private boolean isopen = false;
 
-    CircleImageView draw_img;
-    TextView draw_user,draw_email;
-    FirebaseUser user;
+    private CircleImageView draw_img;
+    private TextView draw_user;
+    private TextView draw_email;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
     }
 
     //on clicking on nav drawer button
-    public void open_fragments_drawer_nav() {
+    private void open_fragments_drawer_nav() {
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -148,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
     }
 
     //on clicking buttom nav drawer
-    public void open_fragments_bottom_nav() {
+    private void open_fragments_bottom_nav() {
         bot_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -194,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
     }
 
     //panic button clicked
-    public void floating_button_clicked(){
+    private void floating_button_clicked() {
         emergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -257,16 +265,14 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.sign_out:
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-                return true;
-            default:
-                return false;
+        if (item.getItemId() == R.id.sign_out) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+            return true;
         }
+        return false;
     }
 }

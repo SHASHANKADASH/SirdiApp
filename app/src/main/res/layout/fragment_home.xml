@@ -57,6 +57,7 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:focusable="true"
                     app:cardElevation="5dp">
 
                     <LinearLayout
@@ -109,6 +110,7 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:focusable="true"
                     app:cardElevation="5dp">
 
                     <LinearLayout
@@ -170,6 +172,7 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:focusable="true"
                     app:cardElevation="5dp">
 
                     <LinearLayout
@@ -222,6 +225,7 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:focusable="true"
                     app:cardElevation="5dp">
 
                     <LinearLayout
@@ -283,6 +287,7 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:focusable="true"
                     app:cardElevation="5dp">
 
                     <LinearLayout

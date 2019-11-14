@@ -1,10 +1,10 @@
 package com.example.sirdiapp.Health;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sirdiapp.MainActivity;
 import com.example.sirdiapp.R;
@@ -15,7 +15,7 @@ import com.smarteist.autoimageslider.SliderView;
 
 public class HealthActivity extends AppCompatActivity {
 
-    SliderView sliderView;
+    private SliderView sliderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

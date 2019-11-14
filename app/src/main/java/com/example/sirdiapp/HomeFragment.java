@@ -17,7 +17,11 @@ import com.example.sirdiapp.Health.HealthActivity;
 
 public class HomeFragment extends Fragment {
 
-    CardView health,education,tour,handicraft,employ;
+    private CardView health;
+    private CardView education;
+    private CardView tour;
+    private CardView handicraft;
+    private CardView employ;
 
     @Nullable
     @Override
