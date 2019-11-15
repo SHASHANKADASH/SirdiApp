@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:theme="@style/AppTheme.Main.Toolbar" />
+        android:theme="@style/AppTheme.Main.Frag.Toolbar"
+        app:title="Notification"
+        app:titleMarginStart="50dp"
+        app:titleMarginEnd="30dp"/>
 
 </RelativeLayout>

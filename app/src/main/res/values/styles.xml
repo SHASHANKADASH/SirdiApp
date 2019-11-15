@@ -37,6 +37,15 @@
     <style name="AppTheme.Main.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:colorPrimary">@android:color/transparent</item>
+        <item name="android:colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- Theme for Main Activity fragment Toolbar. -->
+    <style name="AppTheme.Main.Frag.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="android:colorPrimary">@color/green4</item>
         <item name="android:colorPrimaryDark">@color/green4</item>
         <item name="android:background">@color/green4</item>

@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:theme="@style/AppTheme.Main.Toolbar"
+        android:theme="@style/AppTheme.Main.Frag.Toolbar"
         app:title="Profile"
         app:titleMarginStart="50dp"
         app:titleMarginEnd="30dp"/>

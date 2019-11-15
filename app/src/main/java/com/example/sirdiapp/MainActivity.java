@@ -2,16 +2,19 @@ package com.example.sirdiapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -25,14 +28,14 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenuItemClickListener{
+public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bot_nav;
-    //private Toolbar toolbar;
+    private Toolbar toolbar;
 
     private DrawerLayout nav_drawer;
     private NavigationView nav_view;
-    //private ActionBarDrawerToggle toggle;
+    private ActionBarDrawerToggle toggle;
 
     private long backpressedtime;
     private Toast backtoast;
@@ -57,8 +60,9 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
+        toolbar = findViewById(R.id.toolbar);
+        setTitle("");
+        setSupportActionBar(toolbar);
 
         bot_nav=findViewById(R.id.bottom_navigation);
 
@@ -101,16 +105,57 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         open_fragments_drawer_nav();
         floating_button_clicked();
 
-        /*toggle=new ActionBarDrawerToggle(this,nav_drawer,toolbar,
+        toggle = new ActionBarDrawerToggle(this, nav_drawer, toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         nav_drawer.addDrawerListener(toggle);
-        toggle.syncState();*/
+        toggle.syncState();
 
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
             nav_view.setCheckedItem(R.id.drawer_home);
             bot_nav.setSelectedItemId(R.id.bottom_home);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.sign_out:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //on pressed back button
+    @Override
+    public void onBackPressed() {
+
+        if (nav_drawer.isDrawerOpen(GravityCompat.START)) {
+            nav_drawer.closeDrawer(GravityCompat.START);
+        } else {
+            if (backpressedtime + 2000 > System.currentTimeMillis()) {
+                backtoast.cancel();
+                super.onBackPressed();
+                return;
+            } else {
+                backtoast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+                backtoast.show();
+            }
+            backpressedtime = System.currentTimeMillis();
         }
     }
 
@@ -182,25 +227,6 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
         });
     }
 
-    //on pressed back button
-    @Override
-    public void onBackPressed() {
-
-        if(nav_drawer.isDrawerOpen(GravityCompat.START)){
-            nav_drawer.closeDrawer(GravityCompat.START);
-        } else{
-            if(backpressedtime+2000>System.currentTimeMillis()){
-                backtoast.cancel();
-                super.onBackPressed();
-                return;
-            } else{
-                backtoast=Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
-                backtoast.show();
-            }
-            backpressedtime= System.currentTimeMillis();
-        }
-    }
-
     //panic button clicked
     private void floating_button_clicked() {
         emergency.setOnClickListener(new View.OnClickListener() {
@@ -249,30 +275,5 @@ public class MainActivity extends AppCompatActivity implements  PopupMenu.OnMenu
                 Toast.makeText(MainActivity.this, "Not Applicable Now", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void open_drawer(View view) {
-        nav_drawer.openDrawer(GravityCompat.START);
-    }
-
-    //what happens when top right button clicked
-    public void three_dots(View view) {
-        PopupMenu popup = new PopupMenu(this,view);
-        popup.setOnMenuItemClickListener(this);
-        popup.inflate(R.menu.toolbar_menu);
-        popup.show();
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        if (item.getItemId() == R.id.sign_out) {
-            FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-            return true;
-        }
-        return false;
     }
 }

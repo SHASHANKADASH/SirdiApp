@@ -10,54 +10,19 @@
     android:background="@color/white"
     tools:openDrawer="start">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/drawer_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:elevation="10dp"
-        app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer_menu" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--<androidx.appcompat.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:elevation="7dp"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/AppTheme.Toolbar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_margin="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:clickable="true"
-            android:contentDescription="Hamburger Icon"
-            android:elevation="10dp"
-            android:onClick="open_drawer"
-            android:focusable="true"
-            android:src="@drawable/nav_draw_ham_icon" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
-            android:backgroundTint="@android:color/transparent"
-            android:clickable="true"
-            android:contentDescription="More"
-            android:elevation="10dp"
-            android:onClick="three_dots"
-            android:focusable="true"
-            android:src="@drawable/more_icon" />
+            android:theme="@style/AppTheme.Main.Toolbar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fire_button"
@@ -133,5 +98,14 @@
             app:menu="@menu/bottom_nav_menu" />
 
     </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/drawer_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:elevation="10dp"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
