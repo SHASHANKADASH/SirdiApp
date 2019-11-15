@@ -17,22 +17,16 @@ import com.example.sirdiapp.Health.HealthActivity;
 
 public class HomeFragment extends Fragment {
 
-    private CardView health;
-    private CardView education;
-    private CardView tour;
-    private CardView handicraft;
-    private CardView employ;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home,container,false);
 
-        health=v.findViewById(R.id.health);
-        education=v.findViewById(R.id.education);
-        tour=v.findViewById(R.id.tour);
-        handicraft=v.findViewById(R.id.handicraft);
-        employ=v.findViewById(R.id.employment);
+        CardView health = v.findViewById(R.id.health);
+        CardView education = v.findViewById(R.id.education);
+        CardView tour = v.findViewById(R.id.tour);
+        CardView handicraft = v.findViewById(R.id.handicraft);
+        CardView employ = v.findViewById(R.id.employment);
 
         //onclicking on each domain card
         health.setOnClickListener(new View.OnClickListener() {

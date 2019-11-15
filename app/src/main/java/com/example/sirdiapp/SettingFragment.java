@@ -21,7 +21,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettingFragment extends Fragment {
 
-    private TextView display_name,display_email,verify_email,edit_details;
+    private TextView display_name;
+    private TextView display_email;
+    private TextView edit_details;
     private CircleImageView view;
     private FirebaseUser user;
     private ProgressBar progress;
@@ -31,7 +33,7 @@ public class SettingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_settings,container,false);
 
-        verify_email=v.findViewById(R.id.verify_email);
+        TextView verify_email = v.findViewById(R.id.verify_email);
         edit_details=v.findViewById(R.id.edit_details);
         display_name = v.findViewById(R.id.setting_username);
         display_email = v.findViewById(R.id.setting_email);

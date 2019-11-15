@@ -46,7 +46,6 @@ public class NewProfileActivity extends AppCompatActivity {
 
     private StorageReference profiledataref;
     private StorageTask task;
-    private FirebaseAuth mAuth;
     private FirebaseUser user;
     private ProgressBar progress;
 
@@ -59,7 +58,7 @@ public class NewProfileActivity extends AppCompatActivity {
         username=findViewById(R.id.user_enter);
         progress=findViewById(R.id.update_progress);
 
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         profiledataref = FirebaseStorage.getInstance()
                 .getReference("profilepics/");
         user = mAuth.getCurrentUser();

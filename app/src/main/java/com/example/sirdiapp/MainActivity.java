@@ -2,12 +2,8 @@ package com.example.sirdiapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -16,11 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.sirdiapp.Authentication.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,11 +24,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity implements PanicFragment.PanicListner {
 
     private BottomNavigationView bot_nav;
-    private Toolbar toolbar;
 
     private DrawerLayout nav_drawer;
     private NavigationView nav_view;
-    private ActionBarDrawerToggle toggle;
 
     private long backpressedtime;
     private Toast backtoast;
@@ -49,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements PanicFragment.Pan
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setTitle("");
         setSupportActionBar(toolbar);
 
@@ -65,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements PanicFragment.Pan
         draw_img=header.findViewById(R.id.drawer_user_pic);
         draw_user=header.findViewById(R.id.drawer_user_name);
         draw_email=header.findViewById(R.id.drawer_user_email);
-        toggle = new ActionBarDrawerToggle(this, nav_drawer, toolbar,
-                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, nav_drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         nav_drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -81,34 +73,6 @@ public class MainActivity extends AppCompatActivity implements PanicFragment.Pan
         open_fragments_bottom_nav();
         open_fragments_drawer_nav();
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.sign_out:
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-                return true;
-            case R.id.settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new SettingFragment()).commit();
-                nav_view.setCheckedItem(R.id.drawer_setting);
-                bot_nav.setSelectedItemId(R.id.bottom_settings);
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     //on pressed back button
@@ -132,15 +96,15 @@ public class MainActivity extends AppCompatActivity implements PanicFragment.Pan
 
     @Override
     public void onButtonClicked(String text) {
-        if(text == "1"){
+        if(text.equals("1")){
             Toast.makeText(this, "Ambulance", Toast.LENGTH_SHORT).show();
             bot_nav.setSelectedItemId(R.id.bottom_dummy);
         }
-        if(text == "2"){
+        if(text.equals("2")){
             Toast.makeText(this, "Fire Fighter", Toast.LENGTH_SHORT).show();
             bot_nav.setSelectedItemId(R.id.bottom_dummy);
         }
-        if(text == "3"){
+        if(text.equals("3")){
             Toast.makeText(this, "Police", Toast.LENGTH_SHORT).show();
             bot_nav.setSelectedItemId(R.id.bottom_dummy);
         }
@@ -185,8 +149,15 @@ public class MainActivity extends AppCompatActivity implements PanicFragment.Pan
                                 new SettingFragment()).commit();
                         bot_nav.setSelectedItemId(R.id.bottom_settings);
                         break;
+                    case R.id.drawer_signout:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+                        break;
                     case R.id.drawer_contact:
-                    case R.id.drawer_share:
+                    case R.id.drawer_help:
                     case R.id.drawer_terms:
                     case R.id.drawer_feedback:
                     case R.id.drawer_about:
