@@ -15,14 +15,13 @@
             android:title="Notification" />
 
         <item
-            android:id="@+id/drawer_Profile"
-            android:icon="@drawable/person_icon"
-            android:title="Profile" />
-
-        <item
             android:id="@+id/drawer_setting"
             android:icon="@drawable/settings_icon"
             android:title="Settings" />
+
+        <item
+            android:id="@+id/drawer_dummy"
+            android:visible="false"/>
     </group>
 
     <item android:title="Communicate">

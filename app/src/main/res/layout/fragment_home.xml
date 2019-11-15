@@ -204,7 +204,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:layout_margin="10dp"
-                            android:background="@color/light_black" />
+                            android:background="@color/yellow" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -319,13 +319,67 @@
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:layout_margin="10dp"
-                            android:background="@color/light_black" />
+                            android:background="@color/blue" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Job Opportunity"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/more"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:focusable="true"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_back"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/circle_back"
+                            android:backgroundTint="@color/orange"
+                            android:contentDescription="More"
+                            android:padding="15dp"
+                            android:src="@drawable/more_icon_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="More"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/orange" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="More Options"
                             android:textColor="@android:color/darker_gray"
                             android:textSize="10sp"
                             android:textStyle="bold" />

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
@@ -46,6 +48,7 @@ public class NewProfileActivity extends AppCompatActivity {
     private StorageTask task;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
+    private ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +57,41 @@ public class NewProfileActivity extends AppCompatActivity {
 
         mImageview = findViewById(R.id.new_image_view);
         username=findViewById(R.id.user_enter);
+        progress=findViewById(R.id.update_progress);
 
         mAuth = FirebaseAuth.getInstance();
         profiledataref = FirebaseStorage.getInstance()
                 .getReference("profilepics/");
         user = mAuth.getCurrentUser();
 
+        loaduserdata();
+    }
+
+    private void loaduserdata() {
         if (user != null) {
             if (user.getDisplayName() != null) {
                 Objects.requireNonNull(username.getEditText()).setText(user.getDisplayName());
             }
             if (user.getPhotoUrl() != null) {
+                progress.setVisibility(View.VISIBLE);
                 Picasso.get()
                         .load(user.getPhotoUrl().toString())
-                        .into(mImageview);
+                        .error(R.drawable.blankprofile_round)
+                        .into(mImageview, new Callback() {
+                            @Override
+                            public void onSuccess() {
+                                progress.setVisibility(View.INVISIBLE);
+                                YoYo.with(Techniques.FadeIn)
+                                        .duration(1000)
+                                        .repeat(0)
+                                        .playOn(findViewById(R.id.new_image_view));
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+                                progress.setVisibility(View.INVISIBLE);
+                            }
+                        });
             }
         }
     }
