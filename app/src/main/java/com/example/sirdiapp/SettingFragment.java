@@ -78,6 +78,7 @@ public class SettingFragment extends Fragment {
                 progress.setVisibility(View.VISIBLE);
                 Picasso.get()
                         .load(user.getPhotoUrl().toString())
+                        .error(R.drawable.blankprofile_round)
                         .into(view, new Callback() {
                             @Override
                             public void onSuccess() {

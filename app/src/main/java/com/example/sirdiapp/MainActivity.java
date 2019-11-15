@@ -157,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements PanicFragment.Pan
             if (user.getPhotoUrl() != null) {
                 Picasso.get()
                         .load(user.getPhotoUrl().toString())
+                        .error(R.drawable.blankprofile_round)
                         .into(draw_img);
             }
         }
