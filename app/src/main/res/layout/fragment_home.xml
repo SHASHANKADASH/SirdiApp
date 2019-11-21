@@ -52,8 +52,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/health"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
+                    android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -105,9 +106,10 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/education"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:focusable="true"
@@ -167,8 +169,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/handicraft"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
+                    android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -220,8 +223,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/tour"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
+                    android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -282,8 +286,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/employment"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
+                    android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -336,8 +341,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/more"
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
+                    android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
